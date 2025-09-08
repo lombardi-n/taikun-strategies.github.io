@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/style_darkmode.css">
 </head>
+
+<script>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+    
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+</script>
+        
 <body>
     <!-- Header -->
     <header class="site-header">
