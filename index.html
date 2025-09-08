@@ -4,25 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Taikun Strategies</title>
-  <meta name="description" content="Trusted partner in global trade, commodities, finance, and energy.">
+  <meta name="description" content="Discreet partnerships in global commodities, finance, and energy." />
+
+  <!-- Open Graph (basic SEO signals for now) -->
+  <meta property="og:title" content="Taikun Strategies">
+  <meta property="og:description" content="Discreet partnerships in global commodities, finance, and energy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lombardi-n.github.io/taikun-strategies.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
   <link rel="stylesheet" href="assets/style_darkmode.css" />
 </head>
 
 <body>
+  <!-- Accessibility: skip link -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div class="site-wrap">
     <!-- Header -->
     <header class="site-header">
       <div class="container header-container">
-        <a href="./" class="logo-link" id="homeLink">
+        <a href="./" class="logo-link" id="homeLink" aria-label="Go to homepage">
           <h1 class="logo">Taikun Strategies</h1>
         </a>
         <div class="header-right">
-          <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+          <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
         </div>
       </div>
-      <nav class="nav-links">
+
+      <!-- Nav -->
+      <nav class="nav-links" id="primary-nav">
         <a href="#about">About</a>
         <a href="#approach">Approach</a>
         <a href="#sectors">Sectors</a>
@@ -30,14 +47,15 @@
       </nav>
     </header>
 
+    <!-- Main -->
     <main id="main">
-      <!-- Hero Section with Globe -->
+      <!-- Hero with wireframe globe -->
       <section class="hero reveal-on-scroll">
-        <div class="hero-bg">
-          <svg class="hero-globe" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="95" stroke="#bfa14a" stroke-width="2" fill="none" />
-            <path d="M20,100a80,80 0 1,0 160,0a80,80 0 1,0 -160,0" stroke="#bfa14a" stroke-width="1" fill="none"/>
-            <path d="M100,20a80,80 0 1,1 0,160a80,80 0 1,1 0,-160" stroke="#bfa14a" stroke-width="1" fill="none"/>
+        <div class="hero-bg" aria-hidden="true">
+          <svg class="hero-globe" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="95" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M20,100a80,80 0 1,0 160,0a80,80 0 1,0 -160,0" stroke="currentColor" stroke-width="1" fill="none"/>
+            <path d="M100,20a80,80 0 1,1 0,160a80,80 0 1,1 0,-160" stroke="currentColor" stroke-width="1" fill="none"/>
           </svg>
         </div>
         <div class="hero-content">
@@ -55,7 +73,7 @@
         </div>
       </section>
 
-      <!-- Approach (Tile Layout) -->
+      <!-- Approach as tiles -->
       <section id="approach" class="section light-bg reveal-on-scroll">
         <div class="container">
           <h2>Our Approach</h2>
@@ -68,23 +86,102 @@
         </div>
       </section>
 
-      <!-- Sectors & Contact Sections can stay as they are -->
+      <!-- Sectors (floating cards) -->
+      <section id="sectors" class="section reveal-on-scroll">
+        <div class="container">
+          <h2>Sectors</h2>
+          <div class="sectors-grid">
+            <a class="sector-card" href="#contact"><span class="sector-title">Commodities — Gold, silver, specialty metals</span></a>
+            <a class="sector-card" href="#contact"><span class="sector-title">Finance — Structured instruments & advisory</span></a>
+            <a class="sector-card" href="#contact"><span class="sector-title">Energy — Oil, gas & related opportunities</span></a>
+          </div>
+          <p class="note">Details of specific opportunities are discussed directly with clients.</p>
+        </div>
+      </section>
+
+      <!-- Trust strip -->
+      <section class="trust-strip">
+        <div class="container trust-row">
+          <span class="trust-label">Trusted by partners worldwide</span>
+          <div class="trust-logos">
+            <div class="trust-pill">Refineries</div>
+            <div class="trust-pill">Miners</div>
+            <div class="trust-pill">Family Offices</div>
+            <div class="trust-pill">Trading Desks</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Principles -->
+      <section class="principles section reveal-on-scroll">
+        <div class="container">
+          <h2>Principles</h2>
+          <div class="principles-grid">
+            <div class="principle"><strong>Precision</strong><p>Disciplined sourcing, rigorous evaluation.</p></div>
+            <div class="principle"><strong>Discretion</strong><p>Quiet partnerships, lasting outcomes.</p></div>
+            <div class="principle"><strong>Alignment</strong><p>Long-term value over short-term wins.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section light-bg reveal-on-scroll">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p>Email: <a href="mailto:info@taikunstrategies.com">info@taikunstrategies.com</a></p>
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <p>&copy; 2025 Taikun Strategies. All rights reserved.</p>
     </footer>
   </div>
 
+  <!-- Sticky contact button (conversion helper) -->
+  <a href="#contact" class="sticky-cta" aria-label="Contact Taikun Strategies">Contact</a>
+
+  <!-- JS (kept inline at end for performance) -->
   <script>
+    // Mobile menu toggle + autoclose
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('show'));
-    });
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('show');
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('show'));
+      });
+    }
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Logo click feedback if already home
+    const homeLink = document.getElementById('homeLink');
+    if (homeLink) {
+      homeLink.addEventListener('click', (e) => {
+        if (location.pathname.endsWith('/') || location.pathname.endsWith('/index.html')) {
+          e.preventDefault();
+          const header = document.querySelector('.site-header');
+          header.classList.add('shake');
+          setTimeout(() => header.classList.remove('shake'), 400);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
   </script>
 </body>
 </html>
