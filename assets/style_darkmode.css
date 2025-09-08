@@ -1,1 +1,16 @@
-/* The full style_darkmode.css content from previous answer */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #f5f5f5;
+    }
+    .site-header { background: #000; }
+    nav a { color: #f5f5f5; }
+    .hero { background: linear-gradient(to right, #000, #222); color: #fff; }
+    .cta-button { background: #bfa14a; color: #fff; }
+    .light-bg { background: #2a2a2a; }
+    .sector-card { background: #2f2f2f; border: 1px solid #444; color: #f5f5f5; }
+    .contact-form input, .contact-form textarea {
+        background: #333; border: 1px solid #555; color: #f5f5f5;
+    }
+    footer { background: #000; }
+}
