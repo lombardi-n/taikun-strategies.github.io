@@ -44,4 +44,33 @@ h2 {
     }
     h1 { font-size: 2.5rem; }
     h2 { font-size: 1.5rem; }
+
+    /* In both style.css and style_darkmode.css */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.video-fallback {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Hidden unless video fails */
+}
+
+@supports not (display: video) {
+    .video-background { display: none; }
+    .video-fallback { display: block; }
+}
+
+@media (max-width: 768px) {
+    .video-background, .video-fallback {
+        height: 50vh; /* Reduce video height on mobile */
+    }
+}
 }
