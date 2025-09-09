@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <!-- Your light/dark styles (already created in repo) -->
   <link rel="stylesheet" href="style.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="style_darkmode.css" media="(prefers-color-scheme: dark)">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -41,48 +40,40 @@
     </div>
   </nav>
 
-  <!-- Hero with video background -->
+  <!-- Hero with video background (content overlays video) -->
   <header class="ts-hero">
-    <div class="container position-relative text-center ts-hero-content">
-      <h1 class="display-5 fw-bold">Taikun Strategies</h1>
-      <h2 class="h2">Trusted Partner in Global Trade &amp; Investment</h2>
-      <p class="lead">Strategic solutions across commodities, finance, and energy — delivered with trust, discretion, and results.</p>
-      <a href="#contact" class="btn btn-primary btn-lg">Connect With Us</a>
-    </div>
-
     <!-- Background video -->
-    <div class="ts-hero-media">
+    <div class="ts-hero-media" aria-hidden="true">
       <video autoplay muted loop playsinline class="video-background">
         <source src="trade-map-with-japanese-accent.mp4" type="video/mp4">
         <img src="trade-map-with-japanese-accent.jpg" alt="Global trade map" class="video-fallback">
       </video>
     </div>
 
-    <!-- Overlay gradient -->
-    <div class="ts-hero-overlay"></div>
-    <!-- Soft fade bottom -->
-    <div class="ts-hero-fade"></div>
+    <!-- Dark overlay for readability -->
+    <div class="ts-hero-overlay" aria-hidden="true"></div>
+
+    <!-- Foreground content -->
+    <div class="container position-relative text-center ts-hero-content">
+      <h1 class="display-5 fw-bold">Taikun Strategies</h1>
+      <h2 class="h2">Trusted Partner in Global Trade &amp; Investment</h2>
+      <p class="lead">Strategic solutions across commodities, finance, and energy — delivered with trust, discretion, and results.</p>
+      <a href="#contact" class="btn btn-primary btn-lg">Connect With Us</a>
+    </div>
   </header>
 
-  <!-- ABOUT (overlaps hero slightly) -->
+  <!-- ABOUT (centered paragraph) -->
   <section id="about" class="section ts-section-paper ts-overlap-top">
     <div class="container">
       <h2 class="text-center mb-3">About Us</h2>
-      <p class="mx-auto" style="max-width: 820px;">
+      <p class="mx-auto text-center" style="max-width: 820px;">
         Taikun Strategies operates with a long-term vision, acting as a discreet and reliable partner for clients across industries.
         Whether in commodities, finance, or energy, our role is to create connections that generate sustainable value.
       </p>
     </div>
   </section>
 
-  <!-- Curve divider: Paper → Ink -->
-  <div class="ts-divider ts-divider-to-ink" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
-      <path d="M0,40 C320,120 640,0 960,60 C1160,100 1300,90 1440,70 L1440,120 L0,120 Z"></path>
-    </svg>
-  </div>
-
-  <!-- APPROACH (contrasting background) -->
+  <!-- APPROACH (dark band, tiles) -->
   <section id="approach" class="section ts-section-ink text-white">
     <div class="container">
       <h2 class="text-center mb-4">Our Approach</h2>
@@ -115,14 +106,7 @@
     </div>
   </section>
 
-  <!-- Curve divider: Ink → Paper -->
-  <div class="ts-divider ts-divider-to-paper" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
-      <path d="M0,60 C240,20 480,140 720,90 C960,40 1200,80 1440,60 L1440,120 L0,120 Z"></path>
-    </svg>
-  </div>
-
-  <!-- SECTORS (paper background) -->
+  <!-- SECTORS (paper background, each on a card) -->
   <section id="sectors" class="section ts-section-paper">
     <div class="container">
       <h2 class="text-center mb-4">Sectors</h2>
@@ -130,32 +114,25 @@
         <div class="col-12 col-md-4">
           <div class="ts-card h-100 p-4">
             <h5 class="fw-bold mb-2">Commodities</h5>
-            <p class="mb-0">Gold, silver, and specialty metals (e.g., palladium). Consignment to refineries; dory & bullion formats.</p>
+            <p class="mb-0">Precious and specialty metals with structured sourcing and placement through trusted counterparties.</p>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="ts-card h-100 p-4">
             <h5 class="fw-bold mb-2">Finance</h5>
-            <p class="mb-0">Structured instruments & advising where discretion is essential and alignment is long-term.</p>
+            <p class="mb-0">Selective capital and instrument solutions for qualified partners, aligned to long-term value creation.</p>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="ts-card h-100 p-4">
             <h5 class="fw-bold mb-2">Energy</h5>
-            <p class="mb-0">Oil, gas, and related opportunities with an emphasis on risk-managed execution.</p>
+            <p class="mb-0">Opportunities across the energy landscape with disciplined execution and relationship-driven access.</p>
           </div>
         </div>
       </div>
-      <p class="text-center mt-3 text-muted small mb-0">Details are discussed directly with clients.</p>
+      <p class="text-center mt-3 text-muted small mb-0">Specifics are discussed directly with clients.</p>
     </div>
   </section>
-
-  <!-- Curve divider: Paper → Cloud -->
-  <div class="ts-divider ts-divider-to-cloud" aria-hidden="true">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
-      <path d="M0,50 C300,120 600,0 900,80 C1150,130 1300,100 1440,80 L1440,120 L0,120 Z"></path>
-    </svg>
-  </div>
 
   <!-- CONTACT (light gray) -->
   <section id="contact" class="section ts-section-cloud">
