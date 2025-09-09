@@ -116,7 +116,7 @@ h2 { color: var(--gold); }
 
 /* Footer Logo */
 .ts-logo-bottom {
-  max-width: 20vw; /* Responsive width, adjust as needed */
+  max-width: 40vw; /* Responsive width, adjust as needed */
   height: auto;
   margin-bottom: 1rem;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,.3)); /* Adjusted shadow for dark mode */
