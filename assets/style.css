@@ -1,46 +1,26 @@
-/* ===== Approach gold-ring icons (light mode) ===== */
-.ts-approach-icon,
-.ts-tile-icon {                      /* keep backwards-compat if your HTML still uses .ts-tile-icon */
-  width: 88px; height: 88px; border-radius: 50%;
-  display: grid; place-items: center;
-  margin: 0 auto 12px;
-  border: 2px solid var(--gold);
-  background: radial-gradient(300px 180px at 130% 130%, rgba(191,161,74,.10), rgba(255,255,255,0) 60%);
-  box-shadow: 0 8px 20px rgba(0,0,0,.28);
+/* --- Softer approach rings when used on light backgrounds --- */
+/* Paper (white) sections */
+.ts-section-paper .ts-approach-icon,
+.ts-section-paper .ts-tile-icon {
+  border-color: #d8d3be; /* desaturated gold */
+  background: radial-gradient(260px 160px at 120% 120%, rgba(191,161,74,.06), rgba(255,255,255,0) 60%);
+  box-shadow: 0 4px 10px rgba(0,0,0,.10); /* lighter shadow */
+}
+.ts-section-paper .ts-approach-icon i,
+.ts-section-paper .ts-tile-icon i {
+  color: var(--charcoal); /* darker glyph reads better on light */
 }
 
-.ts-approach-icon i,
-.ts-tile-icon i {
-  font-size: 38px; line-height: 1;
-  color: #fff; /* sits on the dark .ts-section-ink band */
+/* Cloud (teal) sections */
+.ts-section-cloud .ts-approach-icon,
+.ts-section-cloud .ts-tile-icon {
+  border-color: rgba(191,161,74,.75); /* slightly toned-down gold */
+  background: radial-gradient(260px 160px at 120% 120%, rgba(191,161,74,.08), rgba(255,255,255,0) 60%);
+  box-shadow: 0 6px 14px rgba(0,0,0,.14);
+}
+.ts-section-cloud .ts-approach-icon i,
+.ts-section-cloud .ts-tile-icon i {
+  color: #ffffff; /* keeps contrast on teal */
 }
 
-/* Hover shimmer */
-.ts-tile:hover .ts-approach-icon,
-.ts-tile:hover .ts-tile-icon { border-color: var(--gold-2); }
-
-.ts-tile:hover .ts-approach-icon::after,
-.ts-tile:hover .ts-tile-icon::after {
-  content: "";
-  position: absolute; inset: -2px; border-radius: 50%;
-  pointer-events: none;
-  background: conic-gradient(from 0deg, rgba(255,255,255,0) 0deg, rgba(255,255,255,.22) 30deg, rgba(255,255,255,0) 60deg);
-  animation: tsShimmer 1.2s linear;
-}
-
-@keyframes tsShimmer { from { transform: rotate(0) } to { transform: rotate(360deg) } }
-
-/* Type balance under icons */
-.ts-tile .fw-semibold { margin-top: .6rem; font-size: 1.05rem }
-
-/* Responsive tweaks */
-@media (min-width: 992px){
-  .ts-approach-icon i,
-  .ts-tile-icon i { font-size: 42px; }
-}
-@media (max-width: 480px){
-  .ts-approach-icon,
-  .ts-tile-icon { width: 72px; height: 72px }
-  .ts-approach-icon i,
-  .ts-tile-icon i { font-size: 30px }
-}
+/* Keep the existing default (gold ring + white icon) for dark bands */
