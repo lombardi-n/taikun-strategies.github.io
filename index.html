@@ -1,97 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Taikun Strategies: Trusted partner in global trade & investment across commodities, finance, and energy.">
-    <title>Taikun Strategies</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="style_darkmode.css" media="(prefers-color-scheme: dark)">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Taikun Strategies: Trusted partner in global trade & investment across commodities, finance, and energy.">
+  <title>Taikun Strategies</title>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Your light/dark styles (already created in repo) -->
+  <link rel="stylesheet" href="style.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="style_darkmode.css" media="(prefers-color-scheme: dark)">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #1C1C1C;">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="logo.png" alt="Taikun Strategies Logo" style="height: 60px; margin-right: 20px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon" style="background-color: #FFFFFF;"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#approach">Approach</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ts-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="logo.png" alt="Taikun Strategies Logo" style="height: 48px; margin-right: 12px;">
+        <span class="fw-bold">Taikun Strategies</span>
+      </a>
 
-    <header>
-    <div class="container" style="position: relative; z-index: 2; padding: 80px 0; text-align: center; color: #FFFFFF;">
-        <h1 style="font-family: 'Montserrat', sans-serif; font-size: 3rem;">Taikun Strategies</h1>
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem;">Trusted Partner in Global Trade & Investment</h2>
-        <p style="font-family: 'Lato', sans-serif; font-size: 1.25rem;">Strategic solutions across commodities, finance, and energy — delivered with trust, discretion, and results.</p>
-        <a href="#contact" class="btn btn-primary btn-lg" style="background-color: #8B0000; border-color: #8B0000;">Connect With Us</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#approach">Approach</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sectors">Sectors</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-primary ms-lg-3" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-        <video autoplay muted loop playsinline class="video-background">
-            <source src="trade-map-with-japanese-accent.mp4" type="video/mp4">
-            <img src="trade-map-with-japanese-accent.jpg" alt="Fallback Image" class="video-fallback">
-        </video>
+  </nav>
+
+  <!-- Hero with video background -->
+  <header class="ts-hero">
+    <div class="container position-relative text-center ts-hero-content">
+      <h1 class="display-5 fw-bold">Taikun Strategies</h1>
+      <h2 class="h2">Trusted Partner in Global Trade &amp; Investment</h2>
+      <p class="lead">Strategic solutions across commodities, finance, and energy — delivered with trust, discretion, and results.</p>
+      <a href="#contact" class="btn btn-primary btn-lg">Connect With Us</a>
     </div>
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(28,28,28,0.7), rgba(28,28,28,0.7)); z-index: 1;"></div>
-</header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="text-center">About Us</h2>
-            <p style="font-family: 'Lato', sans-serif;">Taikun Strategies operates with a long-term vision, acting as a discreet and reliable partner for clients across industries. Whether in commodities, finance, or energy, our role is to create connections that generate sustainable value.</p>
+    <!-- Background video -->
+    <div class="ts-hero-media">
+      <video autoplay muted loop playsinline class="video-background">
+        <source src="trade-map-with-japanese-accent.mp4" type="video/mp4">
+        <img src="trade-map-with-japanese-accent.jpg" alt="Global trade map" class="video-fallback">
+      </video>
+    </div>
+
+    <!-- Overlay gradient -->
+    <div class="ts-hero-overlay"></div>
+    <!-- Soft fade bottom -->
+    <div class="ts-hero-fade"></div>
+  </header>
+
+  <!-- ABOUT (overlaps hero slightly) -->
+  <section id="about" class="section ts-section-paper ts-overlap-top">
+    <div class="container">
+      <h2 class="text-center mb-3">About Us</h2>
+      <p class="mx-auto" style="max-width: 820px;">
+        Taikun Strategies operates with a long-term vision, acting as a discreet and reliable partner for clients across industries.
+        Whether in commodities, finance, or energy, our role is to create connections that generate sustainable value.
+      </p>
+    </div>
+  </section>
+
+  <!-- Curve divider: Paper → Ink -->
+  <div class="ts-divider ts-divider-to-ink" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path d="M0,40 C320,120 640,0 960,60 C1160,100 1300,90 1440,70 L1440,120 L0,120 Z"></path>
+    </svg>
+  </div>
+
+  <!-- APPROACH (contrasting background) -->
+  <section id="approach" class="section ts-section-ink text-white">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Approach</h2>
+      <div class="row g-3 justify-content-center text-center">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4">
+            <div class="ts-tile-icon"><i class="fas fa-sword"></i></div>
+            <div class="fw-semibold">Understand client needs</div>
+          </div>
         </div>
-    </section>
-
-    <section id="approach" class="section approach-section">
-        <div class="container">
-            <h2 class="text-center">Our Approach</h2>
-            <div class="row justify-content-center text-center">
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <p class="lead"><i class="fas fa-sword" style="color: #BFA14A; margin-right: 10px;"></i>Understand client needs</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <p class="lead"><i class="fas fa-sword" style="color: #BFA14A; margin-right: 10px;"></i>Identify opportunities</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <p class="lead"><i class="fas fa-sword" style="color: #BFA14A; margin-right: 10px;"></i>Structure transactions</p>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <p class="lead"><i class="fas fa-sword" style="color: #BFA14A; margin-right: 10px;"></i>Deliver sustainable value</p>
-                </div>
-            </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4">
+            <div class="ts-tile-icon"><i class="fas fa-sword"></i></div>
+            <div class="fw-semibold">Identify opportunities</div>
+          </div>
         </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="text-center">Contact Us</h2>
-            <p style="font-family: 'Lato', sans-serif;">For discreet inquiries, reach out to explore our strategic solutions.</p>
-            <form action="https://formspree.io/f/mgvlrggp" method="POST" class="text-center">
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" style="max-width: 300px; display: inline-block;" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" style="max-width: 300px; display: inline-block;" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="background-color: #8B0000; border-color: #8B0000;">Send Message</button>
-            </form>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4">
+            <div class="ts-tile-icon"><i class="fas fa-sword"></i></div>
+            <div class="fw-semibold">Structure transactions</div>
+          </div>
         </div>
-    </section>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4">
+            <div class="ts-tile-icon"><i class="fas fa-sword"></i></div>
+            <div class="fw-semibold">Deliver sustainable value</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer class="text-center" style="background-color: #1C1C1C; padding: 20px 0; color: #FFFFFF;">
-        <p>&copy; 2025 Taikun Strategies | Confidential Partnerships Worldwide</p>
-    </footer>
+  <!-- Curve divider: Ink → Paper -->
+  <div class="ts-divider ts-divider-to-paper" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path d="M0,60 C240,20 480,140 720,90 C960,40 1200,80 1440,60 L1440,120 L0,120 Z"></path>
+    </svg>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SECTORS (paper background) -->
+  <section id="sectors" class="section ts-section-paper">
+    <div class="container">
+      <h2 class="text-center mb-4">Sectors</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <div class="ts-card h-100 p-4">
+            <h5 class="fw-bold mb-2">Commodities</h5>
+            <p class="mb-0">Gold, silver, and specialty metals (e.g., palladium). Consignment to refineries; dory & bullion formats.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="ts-card h-100 p-4">
+            <h5 class="fw-bold mb-2">Finance</h5>
+            <p class="mb-0">Structured instruments & advising where discretion is essential and alignment is long-term.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="ts-card h-100 p-4">
+            <h5 class="fw-bold mb-2">Energy</h5>
+            <p class="mb-0">Oil, gas, and related opportunities with an emphasis on risk-managed execution.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-center mt-3 text-muted small mb-0">Details are discussed directly with clients.</p>
+    </div>
+  </section>
+
+  <!-- Curve divider: Paper → Cloud -->
+  <div class="ts-divider ts-divider-to-cloud" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path d="M0,50 C300,120 600,0 900,80 C1150,130 1300,100 1440,80 L1440,120 L0,120 Z"></path>
+    </svg>
+  </div>
+
+  <!-- CONTACT (light gray) -->
+  <section id="contact" class="section ts-section-cloud">
+    <div class="container">
+      <h2 class="text-center mb-3">Contact Us</h2>
+      <p class="text-center mb-4">For discreet inquiries, reach out to explore our strategic solutions.</p>
+
+      <form action="https://formspree.io/f/mgvlrggp" method="POST" class="text-center">
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-lg mx-auto" name="name" placeholder="Name" style="max-width: 420px;" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control form-control-lg mx-auto" name="email" placeholder="Email" style="max-width: 420px;" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center ts-footer">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Taikun Strategies | Confidential Partnerships Worldwide</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
