@@ -176,6 +176,18 @@ h2 { color: var(--gold); }
   }
 }
 
+/* Navbar language dropdown styles */
+.navbar-dark .dropdown-menu {
+  background-color: #222;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.navbar-dark .dropdown-item {
+  color: #fff;
+}
+.navbar-dark .dropdown-item:hover {
+  background-color: rgba(255,255,255,.1);
+}
+
 /* Responsive */
 @media (max-width: 992px) { .ts-hero { min-height: 72vh } }
 @media (max-width: 768px) { .ts-hero { min-height: 60vh } }
