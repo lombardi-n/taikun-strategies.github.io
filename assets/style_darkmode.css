@@ -100,6 +100,16 @@ h2 { color: var(--gold); }
 #compliance h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--gold); }
 #compliance p { font-family: 'Lato', sans-serif; color: #ccc; }
 
+/* ... (previous content remains unchanged) ... */
+
+/* Mobile spacing for stacked Compliance cards (dark) */
+@media (max-width: 768px) {
+  #compliance .ts-card {
+    margin-bottom: 20px; /* Matches Approach spacing for consistency */
+  }
+}
+
+
 /* Contact */
 .form-control {
   background: #333;
