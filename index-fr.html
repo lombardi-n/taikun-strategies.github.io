@@ -1,0 +1,344 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Taikun Strategies : Partenaire de confiance dans le commerce et l'investissement mondiaux dans les matières premières, la finance et l'énergie.">
+  <meta name="keywords" content="Taikun Strategies, commerce mondial, matières premières, finance, énergie, conseil stratégique, immobilier, technologie">
+  <meta property="og:title" content="Taikun Strategies - Partenaire de Confiance dans le Commerce et l'Investissement Mondiaux">
+  <meta property="og:description" content="Solutions stratégiques dans les matières premières, la finance et l'énergie — livrées avec confiance, discrétion et résultats.">
+  <meta property="og:image" content="trade-map-with-japanese-accent.jpg">
+  <meta property="og:url" content="https://lombardi-n.github.io/taikun-strategies.github.io/">
+  <link rel="canonical" href="https://lombardi-n.github.io/taikun-strategies.github.io/">
+  <title>Taikun Strategies</title>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="Final.Typhoon Strategies Logo.favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/style.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="assets/style_darkmode.css" media="(prefers-color-scheme: dark)">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Added CSS for smooth scrolling and mobile dropdown -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    @media (max-width: 767.98px) {
+      .navbar-nav .dropdown-menu {
+        position: relative;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ts-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="Final.Typhoon Strategies Logo.transparent.svg" alt="Logo de Taikun Strategies" style="height: 84px; margin-right: 12px;">
+      </a>
+
+      <!-- Hamburger toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link scroll-link" href="#about">À propos</a></li>
+          <li class="nav-item"><a class="nav-link scroll-link" href="#approach">Approche</a></li>
+          <li class="nav-item"><a class="nav-link scroll-link" href="#sectors">Secteurs</a></li>
+
+          <!-- Language Dropdown (Globe Icon) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="langDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-globe me-1"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item" href="index.html">EN</a></li>
+              <li><a class="dropdown-item" href="index-es.html">ES</a></li>
+              <li><a class="dropdown-item" href="index-fr.html">FR</a></li>
+            </ul>
+          </li>
+
+          <!-- Contact Button -->
+          <li class="nav-item">
+            <a class="btn btn-sm btn-primary ms-lg-3 scroll-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero with video background (content overlays video) -->
+  <header class="ts-hero">
+    <!-- Background video -->
+    <div class="ts-hero-media" aria-hidden="true">
+      <video autoplay muted loop playsinline class="video-background">
+        <source src="trade-map-with-japanese-accent.mp4" type="video/mp4">
+        <img src="trade-map-with-japanese-accent.jpg" alt="Carte du commerce mondial" class="video-fallback">
+      </video>
+    </div>
+
+    <!-- Dark overlay for readability -->
+    <div class="ts-hero-overlay" aria-hidden="true"></div>
+
+    <!-- Foreground content -->
+    <div class="container position-relative text-center ts-hero-content">
+      <h1 class="display-5 fw-bold">Taikun Strategies</h1>
+      <h2 class="h2">Partenaire de Confiance dans le Commerce et l'Investissement Mondiaux</h2>
+      <p class="lead">Nous fournissons des solutions stratégiques dans les matières premières, la finance, l'immobilier et l'énergie avec une confiance et des résultats éprouvés.</p>
+      <a href="#contact" class="btn btn-primary btn-lg">Contactez-nous</a>
+    </div>
+  </header>
+
+  <!-- ABOUT (centered paragraph) -->
+  <section id="about" class="section ts-section-paper ts-overlap-top">
+    <div class="container">
+      <h2 class="text-center mb-3">À propos de Nous</h2>
+      <p class="mx-auto text-center" style="max-width: 820px;">
+        Taikun Strategies opère avec une vision à long terme, servant de partenaire fiable dans diverses industries.
+        Avec une base solide dans les matières premières, la finance, l'immobilier et l'énergie, nous cultivons des relations durables qui génèrent une valeur durable.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOUNDATION & NETWORK -->
+  <section id="foundation" class="section ts-section-paper">
+    <div class="container">
+      <h2 class="text-center mb-3">Notre Fondation et Réseau</h2>
+      <p class="mx-auto text-center" style="max-width: 820px;">
+        Enracinés dans un héritage stratégique et un réseau mondial robuste, Taikun Strategies garantit des résultats avec précision.
+        Nos partenariats établis dans les matières premières, la finance et l'énergie soutiennent des portefeuilles sur mesure pour les bons partenaires.
+      </p>
+    </div>
+  </section>
+
+  <!-- APPROACH (dark band, tiles with gold-ring icons) -->
+  <section id="approach" class="section ts-section-ink text-white">
+    <div class="container">
+      <h2 class="text-center mb-4">Notre Approche</h2>
+
+      <div class="row g-3 justify-content-center text-center">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4 h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="ts-approach-icon" aria-hidden="true">
+              <i class="fa-solid fa-handshake-simple"></i>
+            </div>
+            <div class="fw-semibold text-center">Comprendre les besoins des clients</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4 h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="ts-approach-icon" aria-hidden="true">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <div class="fw-semibold text-center">Identifier les opportunités</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4 h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="ts-approach-icon" aria-hidden="true">
+              <i class="fa-solid fa-cogs"></i>
+            </div>
+            <div class="fw-semibold text-center">Structurer les transactions</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="ts-tile p-4 h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="ts-approach-icon" aria-hidden="true">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="fw-semibold text-center">Fournir une valeur durable</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS (paper background, each on a card) -->
+  <section id="sectors" class="section ts-section-paper">
+    <div class="container">
+      <h2 class="text-center mb-4">Secteurs que Nous Servons</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="ts-card h-100 p-4">
+            <h5 class="fw-bold mb-2">Matières Premières et Énergie</h5>
+            <p class="mb-0">Nous gérons l'approvisionnement stratégique et le commerce des métaux précieux, du pétrole et du gaz avec des solutions de chaîne d'approvisionnement fiables.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="ts-card h-100 p-4">
+            <h5 class="fw-bold mb-2">Finance et Valeurs Mobilières</h5>
+            <p class="mb-0">Nous offrons des solutions de capital et d'instruments sélectifs, offrant une valeur à long terme avec assurance.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="ts-card h-100 p-4">
+            <h5 class="fw-bold mb-2">Immobilier</h5>
+            <p class="mb-0">Nous gérons les opportunités d'acquisition et de développement, en exploitant des actifs sous-évalués avec un succès prouvé.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="ts-card h-100 p-4">
+            <h5 class="fw-bold mb-2">Technologie</h5>
+            <p class="mb-0">Nous guidons les innovations en fintech, technologie d'énergie renouvelable et logistique avec une expertise stratégique.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section id="compliance" class="section ts-section-cloud">
+    <div class="container">
+      <h2 class="text-center mb-3">Conformité et Responsabilité</h2>
+      <p class="text-center mb-4">Taikun Strategies maintient les normes les plus élevées d'intégrité, de conformité et de pratiques éthiques dans toutes ses opérations avec un engagement inébranlable.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="ts-card h-100 p-4">
+            <h3 style="color: #BFA14A;">AML et KYC</h3>
+            <p>Nous maintenons des protocoles rigoureux de lutte contre le blanchiment d'argent et de connaissance du client, garantissant transparence et confiance.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ts-card h-100 p-4">
+            <h3 style="color: #BFA14A;">Approvisionnement Éthique</h3>
+            <p>Nous appliquons des pratiques d'approvisionnement responsable tout au long de la chaîne d'approvisionnement, avec des vérifications strictes pour la durabilité.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ts-card h-100 p-4">
+            <h3 style="color: #BFA14A;">Normes Mondiales</h3>
+            <p>Nous respectons les normes internationales de conformité les plus élevées, répondant aux besoins de toute région avec une responsabilité cohérente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (light gray) -->
+  <section id="contact" class="section ts-section-cloud">
+    <div class="container">
+      <h2 class="text-center mb-3">Contactez-nous</h2>
+      <p class="text-center mb-4">Pour toute demande, contactez-nous pour explorer nos solutions stratégiques ou envoyez-nous un courriel à hello@taikunstrategies.com</p>
+
+      <form action="https://formspree.io/f/mgvlrggp" method="POST" class="text-center">
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-lg mx-auto" name="name" placeholder="Nom" style="max-width: 420px;" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control form-control-lg mx-auto" name="email" placeholder="Courriel" style="max-width: 420px;" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Envoyer le Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="ts-footer">
+    <div class="container text-center py-4">
+      <img src="Final.Typhoon Strategies Logo.transparent.svg" alt="Logo de Taikun Strategies" class="ts-logo-bottom">
+      <p class="mt-3 mb-0">&copy; 2025 Taikun Strategies. Tous droits réservés.</p>
+      <a class="text-center mt-3"><a href="Privacy.html" style="color: #BFA14A;">Politique de Confidentialité</a>
+    </div>
+  </footer>
+
+  <!-- CRITICAL HOTFIX OVERRIDES -->
+  <style>
+    /* 1) Brand-red buttons everywhere */
+    .btn-primary { background-color:#8B0000 !important; border-color:#8B0000 !important; }
+    .btn-primary:hover { background-color:#600000 !important; border-color:#600000 !important; }
+  
+    /* 2) Ensure hero content overlays video */
+    .ts-hero { position: relative; }
+    .ts-hero-media { position: absolute; inset: 0; z-index: 0; }
+    .ts-hero-media .video-background { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+    .ts-hero-overlay { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.55)); }
+    .ts-hero-content { position: relative; z-index: 3; } /* higher than overlay */
+  
+    /* 3) Fit hero to the viewer's window without being oversized */
+    .ts-hero { min-height: 78vh; }
+    @media (max-width: 992px){ .ts-hero { min-height: 72vh; } }
+    @media (max-width: 768px){ .ts-hero { min-height: 60vh; } }
+  </style>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Modified script to fix language dropdown and add smooth scrolling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.getElementById('navbarNav');
+      if (!nav || !window.bootstrap) return;
+      const bsCollapse = new bootstrap.Collapse(nav, { toggle: false });
+
+      // Prevent navbar collapse when clicking language dropdown
+      document.getElementById('langDropdown').addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent navbar from closing
+      });
+
+      // Smooth scrolling and auto-close for nav links
+      document.querySelectorAll('.navbar-nav .scroll-link').forEach(link => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const targetId = link.getAttribute('href').substring(1); // Remove '#'
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            bsCollapse.hide(); // Auto-close navbar
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
