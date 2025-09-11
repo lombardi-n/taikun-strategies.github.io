@@ -1,0 +1,59 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://lombardi-n.github.io/taikun-strategies.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lombardi-n.github.io/taikun-strategies.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lombardi-n.github.io/taikun-strategies.github.io/index-es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lombardi-n.github.io/taikun-strategies.github.io/index-fr.html"/>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lombardi-n.github.io/taikun-strategies.github.io/index-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lombardi-n.github.io/taikun-strategies.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lombardi-n.github.io/taikun-strategies.github.io/index-es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lombardi-n.github.io/taikun-strategies.github.io/index-fr.html"/>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lombardi-n.github.io/taikun-strategies.github.io/index-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lombardi-n.github.io/taikun-strategies.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lombardi-n.github.io/taikun-strategies.github.io/index-es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lombardi-n.github.io/taikun-strategies.github.io/index-fr.html"/>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lombardi-n.github.io/taikun-strategies.github.io/Privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-fr.html"/>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-fr.html"/>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lombardi-n.github.io/taikun-strategies.github.io/Privacy-fr.html"/>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
+```

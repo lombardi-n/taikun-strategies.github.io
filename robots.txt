@@ -1,0 +1,6 @@
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://lombardi-n.github.io/taikun-strategies.github.io/sitemap.xml
+```
