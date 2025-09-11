@@ -58,6 +58,16 @@
     html {
       scroll-behavior: smooth;
     }
+
+    body {
+      padding-top: 100px; /* Adjust based on navbar height */
+    }
+    @media (max-width: 767.98px) {
+      body {
+        padding-top: 80px; /* Smaller padding for mobile */
+      }
+    }
+
     @media (max-width: 767.98px) {
       .navbar-nav .dropdown-menu {
         position: relative;
@@ -68,7 +78,7 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ts-navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ts-navbar fixed-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index-es.html">
         <img src="Final.Typhoon Strategies Logo.transparent.svg" alt="Logo de Taikun Strategies" style="height: 84px; margin-right: 12px;">
