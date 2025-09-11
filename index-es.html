@@ -45,6 +45,16 @@
     html {
       scroll-behavior: smooth;
     }
+
+    body {
+      padding-top: 100px; /* Adjust based on navbar height */
+    }
+    @media (max-width: 767.98px) {
+      body {
+        padding-top: 80px; /* Smaller padding for mobile */
+      }
+    }
+
     @media (max-width: 767.98px) {
       .navbar-nav .dropdown-menu {
         position: relative;
