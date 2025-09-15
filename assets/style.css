@@ -192,8 +192,13 @@ h2 { color: var(--gold); }
 @media (min-width: 768px) and (max-width: 1024px) {
   .ts-hero {
     min-height: 65vh;
-    padding-top: 84px;
     position: relative;
+  }
+  .ts-hero-media {
+    position: absolute;
+    inset: 84px 0 0 0;
+    height: 65vh;
+    overflow: hidden;
   }
   .video-background {
     height: 100%;
@@ -209,6 +214,8 @@ h2 { color: var(--gold); }
   .ts-hero-content {
     padding-top: 0;
     padding-bottom: 60px;
+    position: relative;
+    z-index: 2;
   }
 }
 
