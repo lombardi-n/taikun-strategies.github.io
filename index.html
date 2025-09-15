@@ -61,21 +61,26 @@
       }
     }
   
-    /* Tablet-specific fix for iPad gap */
+    /* Tablet-specific fix for iPad (768px–1024px) */
     @media (min-width: 768px) and (max-width: 1024px) {
       .ts-hero {
-        min-height: 100vh !important; /* Full viewport height */
+        min-height: 70vh; /* Trimmed height for iPad */
+        margin-top: 84px; /* Offset for navbar height */
+        position: relative; /* Ensure proper stacking */
       }
       .video-background {
-        height: 100vh !important; /* Force video to full height */
+        height: 70vh; /* Match hero height */
         top: 0;
         left: 0;
         width: 100%;
         object-fit: cover;
       }
+      .ts-hero-overlay {
+        height: 70vh; /* Match video height */
+      }
       .ts-hero-content {
-        padding-top: 100px; /* Account for navbar height (~84px + buffer) */
-        padding-bottom: 80px;
+        padding-top: 0; /* Reset padding, content adjusts with margin-top */
+        padding-bottom: 60px; /* Maintain bottom spacing */
       }
     }
 </style>
