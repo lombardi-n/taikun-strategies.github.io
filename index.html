@@ -60,7 +60,25 @@
         width: 100%;
       }
     }
-  </style>
+  
+    /* Tablet-specific fix for iPad gap */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .ts-hero {
+        min-height: 100vh !important; /* Full viewport height */
+      }
+      .video-background {
+        height: 100vh !important; /* Force video to full height */
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+      }
+      .ts-hero-content {
+        padding-top: 100px; /* Account for navbar height (~84px + buffer) */
+        padding-bottom: 80px;
+      }
+    }
+</style>
 </head>
 <body>
   <!-- Sticky Navbar -->
