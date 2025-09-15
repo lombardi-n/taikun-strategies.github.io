@@ -64,22 +64,23 @@
     /* Tablet-specific fix for iPad (768px–1024px) */
     @media (min-width: 768px) and (max-width: 1024px) {
       .ts-hero {
-        min-height: 70vh; /* Trimmed height for iPad */
-        margin-top: 84px; /* Offset for navbar height */
-        position: relative; /* Ensure proper stacking */
+        min-height: 65vh; /* Trimmed and balanced height */
+        padding-top: 84px; /* Offset for navbar height, shifts video and content */
+        position: relative; /* Ensure child elements position relative to hero */
       }
       .video-background {
-        height: 70vh; /* Match hero height */
+        height: 100%; /* Fill hero height */
         top: 0;
         left: 0;
         width: 100%;
         object-fit: cover;
       }
       .ts-hero-overlay {
-        height: 70vh; /* Match video height */
+        height: 100%; /* Match hero height */
+        background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.55) 100%); /* Ensure consistent overlay */
       }
       .ts-hero-content {
-        padding-top: 0; /* Reset padding, content adjusts with margin-top */
+        padding-top: 0; /* Content adjusts with hero padding */
         padding-bottom: 60px; /* Maintain bottom spacing */
       }
     }
