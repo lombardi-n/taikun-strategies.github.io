@@ -188,21 +188,26 @@ h2 { color: var(--gold); }
   background-color: rgba(255,255,255,.1);
 }
 
-/* Tablet-specific fix for iPad gap */
+/* Tablet-specific fix for iPad (768px–1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .ts-hero {
-    min-height: 100vh !important;
+    min-height: 70vh;
+    margin-top: 84px;
+    position: relative;
   }
   .video-background {
-    height: 100vh !important;
+    height: 70vh;
     top: 0;
     left: 0;
     width: 100%;
     object-fit: cover;
   }
+  .ts-hero-overlay {
+    height: 70vh;
+  }
   .ts-hero-content {
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding-top: 0;
+    padding-bottom: 60px;
   }
 }
 
