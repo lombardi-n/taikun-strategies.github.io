@@ -3,10 +3,10 @@
   --charcoal: #1C1C1C;
   --ink: #000000;
   --paper: #1C1C1C;
-  --cloud: #222;
+  --cloud: #5d7275; /* Updated to logo teal */
   --gold: #BFA14A;
   --gold-2: #D7C47A;
-  --red: #8B0000;
+  --red: #d35944; /* Updated to logo reddish-orange */
   --metal: #A7ADB4;
   --radius: 14px;
   --elev: 0 6px 24px rgba(0,0,0,.35);
@@ -32,11 +32,11 @@ h2 { color: var(--gold); }
 /* Brand red button */
 .btn.btn-primary {
   background-color: var(--red) !important;
-  border-color: var(--red) !important
+  border-color: var(--red) !important;
 }
 .btn.btn-primary:hover {
-  background-color: #600000 !important;
-  border-color: #600000 !important
+  background-color: #b2422f !important;
+  border-color: #b2422f !important;
 }
 
 /* Hero */
@@ -48,46 +48,126 @@ h2 { color: var(--gold); }
 /* Sections */
 .ts-section-ink { background: #0f0f0f }
 .ts-section-paper { background: #1c1c1c }
-.ts-section-cloud { background: #222 }
+.ts-section-cloud { background: var(--cloud); }
 
 /* Tiles / Cards */
-.ts-tile {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: var(--radius);
-  box-shadow: 0 6px 24px rgba(0,0,0,.7);
-  color: #fff;
-}
-.ts-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover) }
-
 .ts-card {
   background: #2b2b2b;
   color: #f5f5f5;
   border: 1px solid #3b3b3b;
-  border-radius: var(--radius);
-  box-shadow: var(--elev);
+  border-radius: 8px; /* Reduced from 14px */
+  box-shadow: 0 4px 12px rgba(0,0,0,.3); /* Softer shadow */
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.ts-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: #4a4a4a }
+.ts-card:hover {
+  transform: translateY(-2px); /* Reduced hover lift */
+  box-shadow: 0 6px 16px rgba(0,0,0,.5); /* Softer hover shadow */
+  border-color: #4a4a4a;
+}
+
+/* Approach gold-ring icons (dark mode) */
+.ts-approach-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+  border: 2px solid var(--gold);
+  background: radial-gradient(300px 180px at 130% 130%, rgba(191,161,74,.10), rgba(255,255,255,0) 60%);
+  box-shadow: 0 8px 24px rgba(0,0,0,.6);
+}
+.ts-approach-icon i {
+  font-size: 38px;
+  line-height: 1;
+  color: #fff; /* Dark mode: White glyphs for contrast */
+}
+.ts-tile:hover .ts-approach-icon { border-color: var(--gold-2); }
+.ts-tile:hover .ts-approach-icon::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(from 0deg, rgba(255,255,255,.0) 0deg, rgba(255,255,255,.18) 30deg, rgba(255,255,255,0) 60deg);
+  animation: tsShimmer 1.2s linear;
+}
+@keyframes tsShimmer { from { transform: rotate(0) } to { transform: rotate(360deg) } }
+.ts-tile .fw-semibold { margin-top: .6rem; font-size: 1.05rem }
 
 /* Foundation, Compliance */
 #foundation, #compliance { padding: 72px 0; text-align: center }
 #compliance h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--gold); }
 #compliance p { font-family: 'Lato', sans-serif; color: #ccc; }
 
+/* ... (previous content remains unchanged) ... */
+
+/* Mobile spacing for stacked Compliance cards (dark) */
+@media (max-width: 768px) {
+  #compliance .ts-card {
+    margin-bottom: 20px; /* Matches Approach spacing for consistency */
+  }
+}
+
+
 /* Contact */
 .form-control {
   background: #333;
   border: 1px solid #555;
-  color: #f5f5f5
+  color: #f5f5f5;
 }
 .form-control:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 .2rem rgba(191,161,74,.25)
+  box-shadow: 0 0 0 .2rem rgba(191,161,74,.25);
 }
 
 /* Footer */
 .ts-footer { background: #000; color: #f5f5f5; padding: 20px 0 }
 
+/* Footer Logo */
+.ts-logo-bottom {
+  max-width: 40vw; /* Responsive width, adjust as needed */
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.3)); /* Adjusted shadow for dark mode */
+}
+
+@media (max-width: 768px) {
+  .ts-logo-bottom {
+    max-width: 40vw; /* Larger on mobile for visibility */
+  }
+}
+
+/* Navbar language dropdown styles */
+.navbar-dark .dropdown-menu {
+  background-color: #222;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.navbar-dark .dropdown-item {
+  color: #fff;
+}
+.navbar-dark .dropdown-item:hover {
+  background-color: rgba(255,255,255,.1);
+}
+
+
 /* Responsive */
 @media (max-width: 992px) { .ts-hero { min-height: 72vh } }
 @media (max-width: 768px) { .ts-hero { min-height: 60vh } }
+@media (min-width: 992px) { .ts-approach-icon i { font-size: 42px; } }
+@media (max-width: 480px) {
+  .ts-approach-icon { width: 72px; height: 72px }
+  .ts-approach-icon i { font-size: 30px }
+}
+
+/* Mobile spacing for stacked Compliance cards (dark) */
+@media (max-width: 768px) {
+  #compliance .ts-card { margin-bottom: 20px; }
+}
+
+/* Make Compliance cards align nicely across breakpoints */
+#compliance .ts-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
