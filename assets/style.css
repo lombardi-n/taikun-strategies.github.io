@@ -21,14 +21,17 @@ body {
   margin: 0;
 }
 h1, h2 { font-family: 'Montserrat', Lato, Arial, sans-serif; }
-h2 { color: var(--gold); }
+h1 { font-size: clamp(1.5rem, 5vw, 3.5rem); }
+h2 { color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.875rem); }
 .section { padding: 72px 0 }
 
 /* Navbar */
 .ts-navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1040; /* above video */
+  width: 100%;
   box-shadow: 0 6px 16px rgba(0,0,0,.18);
 }
 .navbar-dark .navbar-nav .nav-link { color: #fff; opacity: .9 }
@@ -51,6 +54,7 @@ h2 { color: var(--gold); }
   align-items: center;
   justify-content: center;
   min-height: 78vh; /* desktop height; tweak to 70–80vh to taste */
+  padding-top: 84px; /* Offset for navbar height */
   color: #fff; /* White text for hero */
   overflow: hidden;
   background: #000; /* fallback under video */
@@ -58,8 +62,10 @@ h2 { color: var(--gold); }
 .ts-hero-media {
   position: absolute;
   inset: 0;
+  top: 84px; /* Account for navbar */
   z-index: 0;
   overflow: hidden;
+  height: calc(100% - 84px);
 }
 .video-background, .video-fallback {
   position: absolute;
@@ -72,6 +78,7 @@ h2 { color: var(--gold); }
 .ts-hero-overlay {
   position: absolute;
   inset: 0;
+  top: 84px;
   z-index: 1;
   background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.55) 100%);
 }
@@ -106,6 +113,9 @@ h2 { color: var(--gold); }
   border-radius: var(--radius);
   box-shadow: var(--elev);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .ts-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: #ddd }
 
@@ -139,17 +149,13 @@ h2 { color: var(--gold); }
 @keyframes tsShimmer { from { transform: rotate(0) } to { transform: rotate(360deg) } }
 .ts-tile .fw-semibold { margin-top: .6rem; font-size: 1.05rem }
 
-/* ... (previous content remains unchanged) ... */
-
-/* Add margin spacing to compliance cards on small screens */
-@media (max-width: 768px) {
-  #compliance .ts-card {
-    margin-bottom: 16px; /* Matches Sectors spacing */
-  }
-}
-
 /* Contact */
-.form-control { border-radius: 10px; border: 1px solid #ccc }
+.form-control { 
+  border-radius: 10px; 
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 420px;
+}
 .form-control:focus { border-color: var(--gold); box-shadow: 0 0 0 .2rem rgba(191,161,74,.25) }
 
 /* Footer */
@@ -157,23 +163,10 @@ h2 { color: var(--gold); }
 
 /* Footer Logo */
 .ts-logo-bottom {
-  max-width: 40vw; /* Responsive width, adjust as needed */
+  max-width: clamp(150px, 40vw, 400px); /* Responsive width with limits */
   height: auto;
   margin-bottom: 1rem;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,.1)); /* Subtle shadow for prominence */
-}
-
-@media (max-width: 768px) {
-  .ts-logo-bottom {
-    max-width: 40vw; /* Larger on mobile for visibility */
-  }
-}
-
-/* Add margin spacing to compliance cards on small screens */
-@media (max-width: 768px) {
-  #compliance .ts-card {
-    margin-bottom: 16px;
-  }
 }
 
 /* Navbar language dropdown styles */
@@ -188,42 +181,76 @@ h2 { color: var(--gold); }
   background-color: rgba(255,255,255,.1);
 }
 
-/* Tablet-specific fix for iPad (768px–1024px) */
+/* ============ Responsive Breakpoints ============ */
+
+/* Tablet/iPad: 768px–1024px */
 @media (min-width: 768px) and (max-width: 1024px) {
   .ts-hero {
     min-height: 65vh;
-    position: relative;
+    padding-top: 84px;
   }
   .ts-hero-media {
-    position: absolute;
     inset: 84px 0 0 0;
-    height: 65vh;
-    overflow: hidden;
-  }
-  .video-background {
-    height: 100%;
-    top: 0;
-    left: 0;
-    width: 100%;
-    object-fit: cover;
+    height: calc(65vh - 0px);
   }
   .ts-hero-overlay {
-    height: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.55) 100%);
+    inset: 84px 0 0 0;
+    height: calc(65vh);
   }
   .ts-hero-content {
-    padding-top: 0;
-    padding-bottom: 60px;
-    position: relative;
-    z-index: 2;
+    padding: 48px 0 48px;
+  }
+  .ts-approach-icon { width: 88px; height: 88px; }
+  .ts-approach-icon i { font-size: 38px; }
+  #compliance .ts-card {
+    margin-bottom: 16px;
   }
 }
 
-/* Responsive */
-@media (max-width: 992px) { .ts-hero { min-height: 72vh } }
-@media (max-width: 768px) { .ts-hero { min-height: 60vh } }
-@media (min-width: 992px) { .ts-approach-icon i { font-size: 42px; } }
+/* Large Desktop: 1025px+ */
+@media (min-width: 1025px) {
+  .ts-approach-icon i { font-size: 42px; }
+}
+
+/* Mobile: ≤767px */
+@media (max-width: 767px) {
+  .ts-hero {
+    min-height: 60vh;
+    padding-top: 84px;
+  }
+  .ts-hero-media {
+    inset: 84px 0 0 0;
+    height: calc(60vh - 0px);
+  }
+  .ts-hero-overlay {
+    inset: 84px 0 0 0;
+    height: calc(60vh);
+  }
+  .ts-hero-content {
+    padding: 32px 0 32px;
+  }
+  .ts-approach-icon {
+    width: 72px;
+    height: 72px;
+  }
+  .ts-approach-icon i { font-size: 30px; }
+  .form-control {
+    max-width: 100%;
+    width: calc(100% - 32px);
+  }
+  #compliance .ts-card {
+    margin-bottom: 16px;
+  }
+  .ts-logo-bottom {
+    max-width: 70vw;
+  }
+  .section { padding: 48px 0; }
+}
+
+/* Extra Small: ≤480px */
 @media (max-width: 480px) {
-  .ts-approach-icon { width: 72px; height: 72px }
-  .ts-approach-icon i { font-size: 30px }
+  .ts-approach-icon { width: 64px; height: 64px; }
+  .ts-approach-icon i { font-size: 28px; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
 }

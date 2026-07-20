@@ -22,10 +22,19 @@ body {
 }
 .section { padding: 72px 0 }
 h1, h2 { font-family: 'Montserrat', Lato, Arial, sans-serif; }
-h2 { color: var(--gold); }
+h1 { font-size: clamp(1.5rem, 5vw, 3.5rem); }
+h2 { color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.875rem); }
 
 /* Navbar */
-.ts-navbar { background: #000 !important; box-shadow: 0 6px 16px rgba(0,0,0,.6) }
+.ts-navbar { 
+  background: #000 !important; 
+  box-shadow: 0 6px 16px rgba(0,0,0,.6);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1040;
+}
 .navbar-dark .navbar-nav .nav-link { color: #f5f5f5; opacity: .9 }
 .navbar-dark .navbar-nav .nav-link:hover { opacity: 1; text-decoration: underline }
 
@@ -40,9 +49,45 @@ h2 { color: var(--gold); }
 }
 
 /* Hero */
-.ts-hero { background: #000; color: #fff; min-height: 78vh }
-.ts-hero-overlay { background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.65) 100%) }
-.ts-hero-content { padding: 96px 0 72px }
+.ts-hero { 
+  background: #000; 
+  color: #fff; 
+  min-height: 78vh;
+  padding-top: 84px; /* Offset for navbar height */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ts-hero-media {
+  position: absolute;
+  inset: 0;
+  top: 84px; /* Account for navbar */
+  z-index: 0;
+  overflow: hidden;
+  height: calc(100% - 84px);
+}
+.video-background, .video-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ts-hero-overlay { 
+  position: absolute;
+  inset: 0;
+  top: 84px;
+  z-index: 1; 
+  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.65) 100%);
+}
+.ts-hero-content { 
+  position: relative;
+  z-index: 2;
+  padding: 96px 0 72px;
+}
 .ts-overlap-top { margin-top: -48px; z-index: 2 }
 
 /* Sections */
@@ -58,6 +103,9 @@ h2 { color: var(--gold); }
   border-radius: 8px; /* Reduced from 14px */
   box-shadow: 0 4px 12px rgba(0,0,0,.3); /* Softer shadow */
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .ts-card:hover {
   transform: translateY(-2px); /* Reduced hover lift */
@@ -100,21 +148,13 @@ h2 { color: var(--gold); }
 #compliance h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--gold); }
 #compliance p { font-family: 'Lato', sans-serif; color: #ccc; }
 
-/* ... (previous content remains unchanged) ... */
-
-/* Mobile spacing for stacked Compliance cards (dark) */
-@media (max-width: 768px) {
-  #compliance .ts-card {
-    margin-bottom: 20px; /* Matches Approach spacing for consistency */
-  }
-}
-
-
 /* Contact */
 .form-control {
   background: #333;
   border: 1px solid #555;
   color: #f5f5f5;
+  width: 100%;
+  max-width: 420px;
 }
 .form-control:focus {
   border-color: var(--gold);
@@ -126,16 +166,10 @@ h2 { color: var(--gold); }
 
 /* Footer Logo */
 .ts-logo-bottom {
-  max-width: 40vw; /* Responsive width, adjust as needed */
+  max-width: clamp(150px, 40vw, 400px); /* Responsive width with limits */
   height: auto;
   margin-bottom: 1rem;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,.3)); /* Adjusted shadow for dark mode */
-}
-
-@media (max-width: 768px) {
-  .ts-logo-bottom {
-    max-width: 40vw; /* Larger on mobile for visibility */
-  }
 }
 
 /* Navbar language dropdown styles */
@@ -150,24 +184,76 @@ h2 { color: var(--gold); }
   background-color: rgba(255,255,255,.1);
 }
 
+/* ============ Responsive Breakpoints ============ */
 
-/* Responsive */
-@media (max-width: 992px) { .ts-hero { min-height: 72vh } }
-@media (max-width: 768px) { .ts-hero { min-height: 60vh } }
-@media (min-width: 992px) { .ts-approach-icon i { font-size: 42px; } }
+/* Tablet/iPad: 768px–1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ts-hero {
+    min-height: 65vh;
+    padding-top: 84px;
+  }
+  .ts-hero-media {
+    inset: 84px 0 0 0;
+    height: calc(65vh - 0px);
+  }
+  .ts-hero-overlay {
+    inset: 84px 0 0 0;
+    height: calc(65vh);
+  }
+  .ts-hero-content {
+    padding: 48px 0 48px;
+  }
+  .ts-approach-icon { width: 88px; height: 88px; }
+  .ts-approach-icon i { font-size: 38px; }
+  #compliance .ts-card {
+    margin-bottom: 16px;
+  }
+}
+
+/* Large Desktop: 1025px+ */
+@media (min-width: 1025px) {
+  .ts-approach-icon i { font-size: 42px; }
+}
+
+/* Mobile: ≤767px */
+@media (max-width: 767px) {
+  .ts-hero {
+    min-height: 60vh;
+    padding-top: 84px;
+  }
+  .ts-hero-media {
+    inset: 84px 0 0 0;
+    height: calc(60vh - 0px);
+  }
+  .ts-hero-overlay {
+    inset: 84px 0 0 0;
+    height: calc(60vh);
+  }
+  .ts-hero-content {
+    padding: 32px 0 32px;
+  }
+  .ts-approach-icon {
+    width: 72px;
+    height: 72px;
+  }
+  .ts-approach-icon i { font-size: 30px; }
+  .form-control {
+    max-width: 100%;
+    width: calc(100% - 32px);
+  }
+  #compliance .ts-card {
+    margin-bottom: 16px;
+  }
+  .ts-logo-bottom {
+    max-width: 70vw;
+  }
+  .section { padding: 48px 0; }
+}
+
+/* Extra Small: ≤480px */
 @media (max-width: 480px) {
-  .ts-approach-icon { width: 72px; height: 72px }
-  .ts-approach-icon i { font-size: 30px }
-}
-
-/* Mobile spacing for stacked Compliance cards (dark) */
-@media (max-width: 768px) {
-  #compliance .ts-card { margin-bottom: 20px; }
-}
-
-/* Make Compliance cards align nicely across breakpoints */
-#compliance .ts-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  .ts-approach-icon { width: 64px; height: 64px; }
+  .ts-approach-icon i { font-size: 28px; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
 }
