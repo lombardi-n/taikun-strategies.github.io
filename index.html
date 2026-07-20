@@ -60,31 +60,7 @@
         width: 100%;
       }
     }
-  
-    /* Tablet-specific fix for iPad (768px–1024px) */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      .ts-hero {
-        min-height: 65vh; /* Trimmed and balanced height */
-        padding-top: 84px; /* Offset for navbar height, shifts video and content */
-        position: relative; /* Ensure child elements position relative to hero */
-      }
-      .video-background {
-        height: 100%; /* Fill hero height */
-        top: 0;
-        left: 0;
-        width: 100%;
-        object-fit: cover;
-      }
-      .ts-hero-overlay {
-        height: 100%; /* Match hero height */
-        background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.55) 100%); /* Ensure consistent overlay */
-      }
-      .ts-hero-content {
-        padding-top: 0; /* Content adjusts with hero padding */
-        padding-bottom: 60px; /* Maintain bottom spacing */
-      }
-    }
-</style>
+  </style>
 </head>
 <body>
   <!-- Sticky Navbar -->
@@ -241,8 +217,16 @@
           </div>
         </div>
         <div class="col-md-4">
-          <h3 style="color: #BFA14A;">Ethical Sourcing</h3>
-          <p>Responsible sourcing practices across the supply chain, from origin to end-user, with stringent checks for sustainability and compliance.</p>
+          <div class="ts-card h-100 p-4">
+            <h3 style="color: #BFA14A;">Ethical Sourcing</h3>
+            <p>We apply responsible sourcing practices across the supply chain, with stringent checks for sustainability.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ts-card h-100 p-4">
+            <h3 style="color: #BFA14A;">Global Standards</h3>
+            <p>We adhere to top international compliance benchmarks, meeting the needs of any region with consistent accountability.</p>
+          </div>
         </div>
       </div>
     </div>
